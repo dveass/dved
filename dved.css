@@ -1,0 +1,355 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  background: 
+    linear-gradient(rgba(0,0,0,0.295), rgba(0,0,0,0.295)),
+    url("images/backgound/bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
+  /* Scale entire site down by 90% */
+  zoom: 0.9;                     /* works in Chrome/Edge */
+  transform: scale(0.9);         /* fallback for Firefox/Safari */
+  transform-origin: top center;  /* keep it centered */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  body {
+    zoom: 1;              /* back to 100% so it's readable on small screens */
+    transform: scale(1);  /* reset scaling */
+    background-size: 1000% auto; /* your original zoomed-in background */
+    background-position: center center;
+    background-attachment: fixed;
+  }
+}
+
+
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* logo left, icons right */
+    align-items: center;  
+    padding: 15px 30px;
+    background: transparent; /* no solid bg */
+    position: relative;
+    z-index: 10;
+  }
+  
+  .branding img {
+    height: 50px; /* adjust logo size */
+  }
+  
+  .social-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-links a {
+    margin-left: 15px;
+  }
+  
+  :root {
+    --icon-scale: 1.5s; /* adjust this value (1.0 = no scale, 1.5 = bigger) */
+  }
+  
+  .social-links img {
+    width: px;   /* icon size */
+    height: 35px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    filter: brightness(0) invert(1); /* black → white */
+  }
+  
+  .social-links img:hover {
+    transform: scale(var(--icon-scale));
+  }
+  
+/* Hero */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(120deg, #0077cc, #00b3b3);
+  color: white;
+}
+.hero h1 { font-size: 36px; margin-bottom: 15px; }
+.hero p { font-size: 18px; }
+
+
+.btn:hover { background: #005fa3; }
+
+/* Contact */
+.contact {
+  padding: 60px 20px;
+  text-align: center;
+}
+.contact a { color: #0077cc; text-decoration: none; font-weight: bold; }
+.contact a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* Videos */
+.videos {
+  text-align: center;
+  width: 100%;
+  margin-top: -2%;
+}
+
+.videos h2 {
+  color: rgba(255, 255, 255, 0.85); /* white with 85% opacity */
+  margin-bottom: 20px;
+}
+
+/* Grid layout */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Video card */
+.video-card {
+  position: relative;
+}
+
+.video-card p.video-title {
+  position: relative;   /* keep it in flow */
+  z-index: 2;           /* make sure it's above the video */
+}
+
+/* Images & Videos */
+.video-card img,
+.video-card video {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.video-card img:hover,
+.video-card video:hover {
+  transform: scale(1.01) translateY(-1px);
+}
+
+/* Hidden video by default */
+.video-card video {
+  display: none;
+  position: relative;   /* not absolute, so it stays in place */
+  z-index: 1;
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 video per row */
+    gap: 20px;                  /* smaller gap */
+    padding: 0 15px;            /* padding to avoid edges */
+    max-width: 100%;             /* allow full width scaling */
+  }
+
+
+  .video-card {
+    width: 100%;                 /* take full width of grid column */
+    max-width: none;             /* remove desktop max-width */
+    margin: 0 auto;              /* center horizontally */
+  }
+
+  .video-card img {
+    width: 100%;                 /* full width inside card */
+  }
+}
+
+
+
+/* Video title only uses Roboto Mono */
+.video-title {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline-block;
+  padding: 4px 8px;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace; /* only here */
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive grid for smaller screens */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+  /* vewport */
+  
+  .viewport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on desktop */
+    gap: 50px;
+    max-width: 1800px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+/* Make the grid 1 column on smaller screens (mobile) */
+@media (max-width: 768px) {
+  .viewport-grid {
+    grid-template-columns: 1fr; /* 1 video per row */
+    gap: 20px;
+    padding: 0 15px; /* add horizontal padding so videos don't touch screen edges */
+  }
+
+  .viewport-card iframe {
+    aspect-ratio: 1487 / 1035; /* keeps the video ratio */
+  }
+}
+  .viewport-card {
+    width: 100%;
+    max-width: 1700px; /* make videos bigger */
+  }
+  
+  .viewport-card iframe {
+    width: 100%;
+    aspect-ratio: 1487 / 1035; /* keep ratio */
+    border: none;
+    border-radius: 10px;
+  }
+
+  .viewport {
+    margin-top: 7%;
+  }
+  
+  /* Center the VIEWPORTS heading */
+.viewport > h2 {
+    text-align: center !important;
+    width: 100%;
+    margin: 0 auto 30px;  /* top 0, bottom 30px */
+    display: block;
+    color: rgba(255, 255, 255, 0.85); /* white with 85% opacity */
+    margin-bottom: 20px;
+  }
+
+/* comtact */
+.contact {
+  padding: 40px 20px;
+  text-align: center;
+
+  /* Push it down */
+  margin-top: auto;
+}
+
+html, body {
+  height: 100%;          /* full height page */
+  margin: 0;             /* remove default spacing */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;               /* take up available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* push content to bottom */
+}
+
+
+  .contact h2,
+  .contact p {
+    color: #fff; /* white text for heading + normal text */
+  }
+  
+  .contact a[href*="mailto"] {
+    color: #FFD700; /* gold for email link */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact a[href*="instagram"] {
+    color: #FFD700; /* gold for Instagram handle too */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* Hidden before scroll */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-out; /* smooth fade-in */
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+
+  
+  /* Make section titles bigger */
+.viewport h2,
+.videos h2 {
+  font-size: 3.5rem;   /* scale up heading size */
+  font-weight: 800;    /* make it bold */
+  text-align: center;  /* keep it centered */
+  margin-bottom: 40px; /* add breathing room */
+  letter-spacing: 2px; /* optional: spaced out letters */
+}
+
+
+/* Hide mobile warning by default */
+#mobile-warning {
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#mobile-warning a {
+  color: #ffc400;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#mobile-warning a:hover {
+  text-decoration: underline;
+}
+
+
